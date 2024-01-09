@@ -22,6 +22,14 @@ export class App extends Component {
     modalData: null,
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      prevState.query !== this.state.query ||
+      prevState.page !== this.state.page
+    )
+      this.getImages();
+  }
+
   changeStateQuery = query => {
     this.setState({ query, page: 1 });
   };
@@ -83,13 +91,5 @@ export class App extends Component {
         )}
       </div>
     );
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.query !== this.state.query ||
-      prevState.page !== this.state.page
-    )
-      this.getImages();
   }
 }
