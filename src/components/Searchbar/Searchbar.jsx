@@ -4,7 +4,7 @@ import css from './Searchbar.module.css';
 class Searchbar extends Component {
   handleOnSubmit = e => {
     e.preventDefault();
-    const query = e.currentTarget.elements.searchInput.value;
+    const query = e.currentTarget.elements.searchInput.value.trim();
     this.props.changeStateQuery(query);
   };
 
